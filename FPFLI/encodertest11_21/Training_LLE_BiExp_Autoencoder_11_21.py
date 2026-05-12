@@ -99,7 +99,7 @@ def load_biexp_data_from_directory(data_root, test_ratio=0.2, BATCH_SIZE=128):
     print(f"Found {len(mat_files)} .mat files in {data_root}")
 
     decays_list = []
-    irfs_list = []
+    iRfs_list = []
     tau1_list = []
     tau2_list = []
     f1_list = []
@@ -126,7 +126,7 @@ def load_biexp_data_from_directory(data_root, test_ratio=0.2, BATCH_SIZE=128):
                     # h5py: [time_bins, H, W] format
                     time_bins, H, W = data['Hist'].shape
 
-                    # Sample IRF from first few pixels (memory efficient)
+                    
                     irf = np.mean(data['Hist'][:, :10, :10], axis=(1, 2))
                     irf = irf / (irf.max() + 1e-8)
 
@@ -169,7 +169,7 @@ def load_biexp_data_from_directory(data_root, test_ratio=0.2, BATCH_SIZE=128):
                     # Extract decay curves from each pixel
                     decay_curves = Hist.reshape(H*W, time_bins)
 
-                    # IRF: use sum of all decays (normalized)
+                    
                     irf = np.sum(Hist, axis=(0, 1))
                     irf = irf / (irf.max() + 1e-8)
                     irfs = np.tile(irf, (H*W, 1))
@@ -475,7 +475,7 @@ def train_stage3_joint(train_set, test_set, model, learning_rate=1e-5,
     Loss: alpha * reconstruction_loss + (1-alpha) * parameter_loss
 
     This final stage fine-tunes the model to optimize both objectives,
-    following the paper's methodology for achieving Cramér-Rao bound.
+    following the paper's methodology for achieving Cramér-Rao bound... Some shit i read in that paper
     """
     print("\n" + "=" * 80)
     print(" STAGE 3: JOINT OPTIMIZATION")
@@ -598,7 +598,7 @@ if __name__ == '__main__':
     Start = time.time()
 
     # Data paths - using the 500 sample multiexp dataset
-    data_root = r'C:\Users\mcg11923\Thesis\FPFLI\Synthetic data preparation\generate_multiexp_spectrumless\generate_spectrum_lite\realdata_stats'
+    data_root = r'C:\Users\mcg11923\Thesis\training_dataset_multiexp_s8_500samples'
 
     print(f"Data directory: {data_root}")
     print(f"Directory exists: {os.path.exists(data_root)}")
