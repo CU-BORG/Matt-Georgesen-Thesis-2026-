@@ -1,0 +1,13 @@
+# Ignore everything by default
+*
+*/
+
+# But don't ignore these file types
+!*.py
+!*.m
+
+# Don't ignore .gitignore itself
+!.gitignore
+
+# Don't ignore directories (this allows git to traverse into subdirectories)
+!**/
