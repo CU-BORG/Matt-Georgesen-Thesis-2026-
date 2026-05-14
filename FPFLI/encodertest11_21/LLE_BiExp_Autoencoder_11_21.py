@@ -120,6 +120,7 @@ class LLE_BiExp_Autoencoder(nn.Module):
 
         # Embedding layers (similar to Original_LLE)
         self.embd_decay = nn.Conv1d(1, dim, kernel_size=patch_size, stride=patch_size)
+        #evil garbage that kills me
         self.embd_irf = nn.Conv1d(1, dim, kernel_size=patch_size, stride=patch_size)
 
         # Encoder convolutional blocks

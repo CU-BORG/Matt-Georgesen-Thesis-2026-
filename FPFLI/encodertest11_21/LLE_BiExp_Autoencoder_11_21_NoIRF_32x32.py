@@ -2,17 +2,15 @@
 # -*- coding: utf-8 -*-
 """
 LLE Bi-Exponential Autoencoder for FLIM Parameter Extraction (Decay-Only Input)
-32x32 Intermediate Dimensions Version
+32x32 
 
-Based on:
-1. Paper: "Rapid parameter estimation of discretely sampled signals" (Visschers et al., 2021)
-2. Original_LLE.py ConvMixer architecture
+my chud ass fix for this code
 
 This autoencoder network extracts 3 parameters (tau1, tau2, f) from FLIM decay curves
 by encoding them into a 3-dimensional latent space and reconstructing the signal.
 
 MODIFIED VERSION: This version takes ONLY the decay curve as input (no IRF).
-DIMENSION UPDATE: Intermediate representation is 32 feature channels × 32 time bins
+Which is what it should have had all alone.
 
 Key Design Principles from Paper:
 - Dense autoencoder with hourglass shape
@@ -20,13 +18,7 @@ Key Design Principles from Paper:
 - Three-stage training for structured latent space
 - Direct parameter extraction from latent representation
 
-IMPORTANT - Fraction Definition:
-- tau1 = short lifetime (free state, 0.2-0.7 ns)
-- tau2 = long lifetime (bound state, 1.2-4.5 ns)
-- f = fraction of tau2 (long/bound component)
-- The model learns this implicitly from training data
-- f represents the bound state fraction (longer lifetime component)
-- Biological interpretation: higher f = more bound protein
+
 
 @author: mg
 """

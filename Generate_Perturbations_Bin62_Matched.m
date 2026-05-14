@@ -142,8 +142,8 @@ for group_idx = 1:length(PERTURBATION_GROUPS)
                         IRF_used = circshift(IRF, delay_bins);
 
                     case 'perturb_tri_exponential'
-                        % Add 3rd component: tau3=2.5 ns with 20% weight
-                        tau3 = 2.5;
+                        % Add 3rd component: random tau3 from 0.2-5 ns with 20% weight
+                        tau3 = 0.2 + (5 - 0.2) * rand();  % Random tau3 in [0.2, 5] ns
                         f3 = 0.2;
                         % Rescale original fractions to sum to 0.8
                         f1_scaled = (1 - f_slow) * (1 - f3);
