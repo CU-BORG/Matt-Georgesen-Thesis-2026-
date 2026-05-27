@@ -182,7 +182,7 @@ def run_inference_on_dataset(data_dir, dataset_name, irf_bin):
         maxvals[maxvals == 0] = 1.0
         decays = decays / maxvals
 
-        # Tile IRF
+        
         irfs = np.tile(irf, (n_valid, 1)).astype(np.float32)
 
         # Convert to tensors

@@ -26,7 +26,7 @@ IMPORTANT - Fraction Definition:
 - f represents the bound state fraction (longer lifetime component)
 - Biological interpretation: higher f = more bound protein
 
-@author: Based on Visschers et al. 2021 + Original tauNet architecture
+@author: mg
 """
 
 import torch

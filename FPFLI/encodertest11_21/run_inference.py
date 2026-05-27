@@ -7,7 +7,11 @@ prints per-image stats and saves comparison plots.
 @author: mg
 """
 
-import sys, os, time, copy
+import os
+# Fix OpenMP library conflict
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
+
+import sys, time, copy
 import numpy as np
 import torch
 import h5py
@@ -348,7 +352,7 @@ ax.set_xlim(lo, hi)
 ax.set_ylim(lo, hi)
 ax.set_xlabel('Ground Truth (ns)', fontsize=11)
 ax.set_ylabel('Predicted (ns)', fontsize=11)
-ax.set_title(r'$\tau_1$ and $\tau_2$ Combined', fontsize=13, fontweight='bold')
+ax.set_title(r'$\tau_1$ and $\tau_2$ Prediction vs Ground Truth', fontsize=13, fontweight='bold')
 ax.set_aspect('equal')
 ax.grid(True, alpha=0.25)
 

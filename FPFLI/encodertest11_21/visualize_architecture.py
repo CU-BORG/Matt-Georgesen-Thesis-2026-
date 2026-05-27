@@ -112,7 +112,7 @@ def draw_arrow(y_start, y_end, width_start, width_end):
 
 # Input
 w_prev = draw_layer(y_pos, "2×256", layer_height, 'Input Signals',
-                    'Decay & IRF signals', colors['input'])
+                    'Decay and Sample Pixel', colors['input'])
 y_pos -= spacing
 draw_arrow(y_pos + spacing, y_pos, w_prev, get_width_from_dims(32*32))
 

@@ -33,7 +33,7 @@ from LLE_BiExp_Autoencoder_11_21_NoIRF_32x32 import LLE_BiExp_Autoencoder
 
 
 # ============================================================================
-# Dataset for Real FLIM Data - DECAY-ONLY (NO IRF, NO FILTERING)
+# Dataset for Real FLIM Data - DECAY-ONLY
 # ============================================================================
 
 class RealFLIMDataset(Dataset):

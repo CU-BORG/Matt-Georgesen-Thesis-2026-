@@ -65,7 +65,7 @@ class RealFLIMDataset(Dataset):
             f_gt = data['f_gt_components']  # [H, W, 2]
             photons = data['photons']  # [H, W]
 
-            # Compute IRF from histogram (sum over all spatial pixels)
+            
             irf = np.sum(hist, axis=(0, 1))  # [256]
             irf = irf / (irf.max() + 1e-8)  # Normalize
 

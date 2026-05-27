@@ -16,7 +16,7 @@ Output Format (compatible with model training pipeline):
 - photons: [H, W] total photon counts per pixel
 - sample_info: metadata dictionary
 
-@author: Package real data script
+@author: mg
 @date: 2026-03-01
 """
 

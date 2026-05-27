@@ -10,6 +10,9 @@ Based on:
 This autoencoder network extracts 3 parameters (tau1, tau2, f) from FLIM decay curves
 by encoding them into a 3-dimensional latent space and reconstructing the signal.
 
+DO NOT USE
+THIS MODEL TAKES AN UNRELATED PIXEL NOT THE IRF
+
 Key Design Principles from Paper:
 - Dense autoencoder with hourglass shape
 - Latent space dimensionality = number of parameters (3)
@@ -23,7 +26,7 @@ Key Design Principles from Paper:
 - f represents the bound state fraction (longer lifetime component)
 
 
-@author: Based on Visschers et al. 2021 + Original tauNet architecture
+@author: mg
 """
 
 import torch
@@ -67,7 +70,7 @@ class LLE_BiExp_Autoencoder(nn.Module):
     Dense Autoencoder Network for Bi-Exponential FLIM Parameter Extraction
 
     Following the methodology from Visschers et al. 2021:
-    - Encoder compresses decay + IRF into 3-parameter latent space
+    - Encoder compresses decay + IRF (BUG) into 3-parameter latent space
     - Latent space directly represents [tau1, tau2, f]
       where tau1 = short lifetime (free state, 0.2-0.7 ns)
             tau2 = long lifetime (bound state, 1.2-4.5 ns)
